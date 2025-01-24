@@ -349,6 +349,7 @@ class MaterialTheme {
           style: ElevatedButton.styleFrom(
             backgroundColor: colorScheme.primary,
             foregroundColor: colorScheme.onPrimary,
+            iconColor: colorScheme.onPrimary,
           ),
         ),
         inputDecorationTheme: InputDecorationTheme(

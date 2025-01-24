@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "real_time_rpg",
+            "name": "real_time_rpg (debug)",
             "request": "launch",
             "type": "dart"
         },
