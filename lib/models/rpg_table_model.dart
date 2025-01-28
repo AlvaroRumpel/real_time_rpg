@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 class RpgTableModel {
+  static String get tableName => 'rpg_tables';
+
   final String id;
   final DateTime createdAt;
   final DateTime updatedAt;
@@ -60,11 +62,10 @@ class RpgTableModel {
   factory RpgTableModel.fromMap(Map<String, dynamic> map) {
     return RpgTableModel(
       id: map['id'] as String,
-      createdAt: DateTime.fromMillisecondsSinceEpoch(map['created_at'] as int),
-      updatedAt: DateTime.fromMillisecondsSinceEpoch(map['updated_at'] as int),
-      deletedAt: map['deleted_at'] != null
-          ? DateTime.fromMillisecondsSinceEpoch(map['deleted_at'] as int)
-          : null,
+      createdAt: DateTime.parse(map['created_at']),
+      updatedAt: DateTime.parse(map['updated_at']),
+      deletedAt:
+          map['deleted_at'] != null ? DateTime.parse(map['deleted_at']) : null,
       tableCode: map['table_code'] as String,
       playerIds: map['player_ids'] != null
           ? List<String>.from((map['player_ids'] as List<String>))

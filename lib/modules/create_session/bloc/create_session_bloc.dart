@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 
+import '../../../models/rpg_table_model.dart';
 import '../repository/create_session_repository.dart';
 
 part 'create_session_state.dart';
@@ -53,7 +54,7 @@ class CreateSessionBloc extends Cubit<CreateSessionState> {
 
       emit(CreateSessionLoading());
 
-      await _repo.createSession(
+      final table = await _repo.createSession(
         tableName: tableName,
         lifePointsBase: lifePoints!,
         actionPointsBase: actionPoints!,
@@ -63,7 +64,7 @@ class CreateSessionBloc extends Cubit<CreateSessionState> {
         minInventory: minInventoryValue!,
       );
 
-      emit(CreateSessionSuccess());
+      emit(CreateSessionSuccess(table: table));
     } catch (e) {
       emit(CreateSessionFailure());
     }

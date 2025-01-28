@@ -355,6 +355,11 @@ class MaterialTheme {
         inputDecorationTheme: InputDecorationTheme(
           border: OutlineInputBorder(),
         ),
+        dividerTheme: DividerThemeData(
+          color: colorScheme.onPrimary,
+          space: 1,
+          thickness: 1,
+        ),
       );
 
   List<ExtendedColor> get extendedColors => [];

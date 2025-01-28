@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../router/app_router.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_text_field.dart';
 import 'bloc/create_session_bloc.dart';
@@ -72,6 +74,17 @@ class _CreateSessionPageState extends State<CreateSessionPage> {
                 content: Text('Preencha os campos corretamente'),
               ),
             );
+
+            return;
+          }
+
+          if (state is CreateSessionSuccess) {
+            context.goNamed(
+              RouteNames.inSession.name,
+              pathParameters: {'id': state.table.id},
+              extra: state.table,
+            );
+            return;
           }
         },
         child: Center(
